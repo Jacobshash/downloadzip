@@ -223,11 +223,11 @@ public class CompressUtil {
         if(StringUtils.isBlank(zipName)){
             zipName = sourceFile.getName();
         }
+        response.setContentType("application/octet-stream");
+        response.setCharacterEncoding("utf-8");
+        response.setHeader("Content-Disposition", "attachment; filename=\"" + zipName + ".zip\"");
         try (ServletOutputStream servletOutputStream = response.getOutputStream()){
             CompressUtil.compressFile(sourceFile, servletOutputStream);
-            response.setContentType("application/octet-stream");
-            response.setCharacterEncoding("utf-8");
-            response.setHeader("Content-Disposition", "attachment; filename=\"" + zipName + ".zip\"");
             servletOutputStream.flush();
         }
     }

@@ -20,9 +20,6 @@ public class DownloadZipServiceImpl implements DownloadZipService {
     public void downloadZip(HttpServletResponse response) throws IOException {
         String zipFileName = "myFiles";
         String sourceFilePath = "D:\\giteeblog\\loltoulanblog";
-        response.setContentType("application/octet-stream");
-        response.setCharacterEncoding("utf-8");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + zipFileName + ".zip\"");
         CompressUtil.httpDownloadCompressFile(sourceFilePath, response, null);
     }
 }
