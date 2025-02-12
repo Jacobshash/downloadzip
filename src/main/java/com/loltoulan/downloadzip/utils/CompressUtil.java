@@ -16,7 +16,7 @@ import java.util.zip.*;
 /**
  * @description: 压缩工具类
  */
-@SuppressWarnings("JavadocDeclaration")
+@SuppressWarnings({"JavadocDeclaration", "LoggingSimilarMessage"})
 @Slf4j
 public class CompressUtil {
 
@@ -266,7 +266,8 @@ public class CompressUtil {
         File file = new File(filename);
         if (!file.exists()) {
             try {
-                file.createNewFile();
+                boolean newFile = file.createNewFile();
+                log.info("文件创建成功，文件是否已存在 {}", newFile);
             } catch (IOException e) {
                 log.error("文件创建失败", e);
             }
@@ -279,7 +280,8 @@ public class CompressUtil {
                 file = new File(newFilename);
                 if (!file.exists()) {
                     try {
-                        file.createNewFile();
+                        boolean newFile = file.createNewFile();
+                        log.info("文件创建成功，文件是否已存在 {}", newFile);
                     } catch (IOException e) {
                         log.error("文件创建失败", e);
                     }
