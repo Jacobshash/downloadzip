@@ -3,6 +3,8 @@ package com.loltoulan.downloadzip.service;
 import com.loltoulan.downloadzip.utils.CompressUtil;
 import com.loltoulan.downloadzip.utils.ZipUtil;
 
+import cn.hutool.core.io.FileUtil;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -58,5 +60,6 @@ public class DownloadZipServiceImpl implements DownloadZipService {
             }
             servletOutputStream.flush();
         }
+        FileUtil.del(zipFilePath);
     }
 }
