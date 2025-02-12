@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class DownloadZipController {
     private final DownloadZipService downloadZipService;
 
-    @RequestMapping("/download/zip/no-password")
+    @RequestMapping("/download/zip/password")
     public void downloadZip(){
         // downloadZipService.downloadZip();
     }
